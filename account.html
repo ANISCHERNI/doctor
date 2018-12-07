@@ -166,6 +166,12 @@
                                         <label for="exampleInputEmail1"> Name</label>
                                         <input class="form-control" type="text" id="nom">
                                     </div>
+
+                                    <div class="form-group">
+                                        <label>Date de Naissance</label>
+                                        <input class="form-control" type="date" id="DateNais">
+                                    </div>
+
                                     <div class="form-group">
                                         <label>Téléphone</label>
                                         <input class="form-control" type="tel" id="tlf">
@@ -181,21 +187,35 @@
                                     </div>
 
 
+                                    <div class="form-group">
+                                        <label>Message</label>
+                                        <textarea class="form-control" id="message" rows="3" placeholder="Write Comment Here"></textarea>
+                                    </div>
+
+
                                     <form name="formulaire" id="formulaire" action="" method="">
-                                        patient <input type="radio" name="choix" id="patient" value="non" onclick="afficherPatient();"checked>
-                                        Medecin <input type="radio" name="choix" value="oui" id="medecien" onclick="afficherMedecin();">
+                                        patient <input type="radio" name="choix" id="patient" value="patient" onclick="afficherPatient();"
+                                            checked>
+                                        Medecin <input type="radio" name="choix" value="medecien" id="medecien" onclick="afficherMedecin();">
 
                                     </form>
+
+                                    <div class="form-group">
+                                            <label for="exampleInputFile">File input</label>
+                                            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                          </div>
+
+
 
 
                                     <div class="form-group">
                                         <div id="champ">
-                                            
+
                                         </div>
 
                                     </div>
                                     <div class="form-group text-center">
-                                        <button type="button" class="btn btn-default" onclick="verif()">Register</button>
+                                        <button type="button" class="btn btn-default" id="register" onclick="verif()">Register</button>
                                     </div>
                                 </form>
                             </div>

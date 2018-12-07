@@ -1,4 +1,4 @@
- 
+
 
 
 function conx() {
@@ -10,7 +10,7 @@ function conx() {
     console.log(mail2);
     var mdp2 = document.getElementById('password').value;
     console.log(mdp2);
-    var role = document.getElementById("Role").value;
+    //var role = document.getElementById("role").value;
 
 
     for (i = 0; i < users.length; i++) {
@@ -47,7 +47,7 @@ function verif() {
     validepassword();
     //registerMed () ;
 
-   // choix() ;
+    choix();
     stockage();
 
 
@@ -137,50 +137,84 @@ function validepassword() {
 
     }
 }
-function afficherPatient()
-{   
 
-    document.getElementById("champ").innerHTML="";  
+var roleRadioButton = "";
+var specialitéChoix = "";
 
-    
+function afficherPatient() {
+
+    document.getElementById("champ").innerHTML = "";
+
+
+
 
 }
-function afficherMedecin()
-{   
-    var Html=   `<label for="exampleInputspe">spécielité</label>
-    <select name="sep" id="myspec" class="form-control">
+
+roleRadioButton = "Patient";
+specialitéChoix = "Rien";
+
+
+
+function afficherMedecin() {
+    var Html = `<label for="exampleInputspe">spécielité</label>
+    <select name="sep" id="myspec" class="form-control" >
         <option class="form-control" value=""></option>
 
         <option class="form-control" value ="medecin_general"id="Med">Médecien générale</option>
         <option class="form-control" value ="dentist">Dentist</option>
     </select>`;
-    document.getElementById("champ").innerHTML=Html;  
+    document.getElementById("champ").innerHTML = Html;
 
-    
+    roleRadioButton = "Medecin";
+
+
+
+
 }
 
-function choix (){
+
+function choix() {
+
     var choiix = document.getElementsByName('choix');
 
 
- if (choiix[0].checked)
- {
+    if (choiix[0].checked) {
+
+        document.getElementById("register").disabled = false;
+    }
+
+    else {
+        //console.log("value = "+ document.getElementById("myspec").value) ;
+        //console.log("choix  = "+ choiix[1].checked) ;
+
+        if ((document.getElementById("myspec").value == "") && (choiix[1].checked)) {
+
+            alert("erreur");
+
+
+
+        
+
+        }
+        else
+        {
+            
+            console.log("VAAA  = "+ document.getElementById("myspec").value) ;
+    
+    
+            specialitéChoix =document.getElementById("myspec").value;
+        
+        }
+    }
    
-    document.getElementById("register").disabled=false;
-}
-
- else 
- if ((document.getElementById("champ").value=="")&&(choiix[1].checked)) {
-
-    alert("erreur");
-    document.getElementById("register").disabled=true ;
-
- }
 
 
 
 
 }
+
+
+
 
 
 function stockage() {
@@ -190,9 +224,13 @@ function stockage() {
 
         username: document.getElementById("nom").value,
         Télé: document.getElementById("tlf").value,
+        dateNaissance:document.getElementById("DateNais").value,
         password: document.getElementById("mdp").value,
         email: document.getElementById("email").value,
-        specialité:document.getElementById("myspec").value ,
+        message:document.getElementById("message").value,
+        role: roleRadioButton,
+        specialité: specialitéChoix,
+
 
     };
 
@@ -201,5 +239,5 @@ function stockage() {
     var users = JSON.parse(localStorage.getItem("users")) || [];
     users.push(user);
     users = localStorage.setItem("users", JSON.stringify(users));
-    location.href = "index-one.html";
+   location.href = "index-one.html";
 }
