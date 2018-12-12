@@ -43,6 +43,7 @@ function conx() {
 
 function verif() {
     verifUsername();
+    CartNas();
     validemail();
     validepassword();
     //registerMed () ;
@@ -63,7 +64,21 @@ function verifUsername() {
     }
 
 }
+function CartNas() {
+    var users = JSON.parse(localStorage.getItem("users")) || [];
 
+    var cin = document.getElementById("cin").value;
+
+    for (let i = 0; i < users.length; i++) {
+        if ((cin == users[i].CIN) && (cin.length > 8)) {
+            alert("vérifier Votre Némuro CIN");
+            break;
+
+        }
+
+    }
+
+}
 function validemail() {
     var mail = document.getElementById("email");
 
@@ -153,16 +168,16 @@ function afficherPatient() {
 roleRadioButton = "Patient";
 specialitéChoix = "Rien";
 
-
-
 function afficherMedecin() {
-    var Html = `<label for="exampleInputspe">spécielité</label>
+    var Html = `<label for="exampleInputspe" classe="label">spécielité</label>
     <select name="sep" id="myspec" class="form-control" >
         <option class="form-control" value=""></option>
 
         <option class="form-control" value ="medecin_general"id="Med">Médecien générale</option>
         <option class="form-control" value ="dentist">Dentist</option>
     </select>`;
+    document.getElementById("champ").setAttribute("class", "rad");
+
     document.getElementById("champ").innerHTML = Html;
 
     roleRadioButton = "Medecin";
@@ -193,41 +208,45 @@ function choix() {
 
 
 
-        
+
 
         }
-        else
-        {
-            
-            console.log("VAAA  = "+ document.getElementById("myspec").value) ;
-    
-    
-            specialitéChoix =document.getElementById("myspec").value;
-        
+        else {
+
+            console.log("VAAA  = " + document.getElementById("myspec").value);
+
+
+            specialitéChoix = document.getElementById("myspec").value;
+
         }
     }
-   
+
+
+
+
+
 
 
 
 
 }
 
-
-
+//var users = JSON.parse(localStorage.getItem("users"))
+//var i = users.length.idUSer
 
 
 function stockage() {
 
-
     var user = {
-
+        //idUSer: i++,
+        CIN: document.getElementById("cin").value,
         username: document.getElementById("nom").value,
         Télé: document.getElementById("tlf").value,
-        dateNaissance:document.getElementById("DateNais").value,
+        dateNaissance: document.getElementById("DateNais").value,
         password: document.getElementById("mdp").value,
         email: document.getElementById("email").value,
-        message:document.getElementById("message").value,
+        adresse: document.getElementById("adresse").value,
+        message: document.getElementById("message").value,
         role: roleRadioButton,
         specialité: specialitéChoix,
 
@@ -239,5 +258,5 @@ function stockage() {
     var users = JSON.parse(localStorage.getItem("users")) || [];
     users.push(user);
     users = localStorage.setItem("users", JSON.stringify(users));
-   location.href = "index-one.html";
+    location.href = "index-one.html";
 }

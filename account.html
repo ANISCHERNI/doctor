@@ -140,6 +140,7 @@
                                     up</a></li>
                         </ul>
                         <!-- Tab panes -->
+
                         <div class="tab-content tabs">
                             <div role="tabpanel" class="tab-pane fade in active" id="Section1">
                                 <form class="form-horizontal">
@@ -161,68 +162,150 @@
                                 </form>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="Section2">
-                                <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1"> Name</label>
-                                        <input class="form-control" type="text" id="nom">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active show" data-toggle="tab" href="#home">Médecin</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#profile">Patient</a>
+                                    </li>
+
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div class="tab-pane fade active show" class="home" id="home">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1"> Name</label>
+                                                <input class="form-control" type="text" id="nom">
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Vote CIN</label>
+                                                <input class="form-control" maxlength="8" type="text" id="cin">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Date de Naissance</label>
+                                                <input class="form-control" type="date" id="DateNais">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Téléphone</label>
+                                                <input class="form-control" type="tel" id="tlf">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email</label>
+                                                <input class="form-control" type="text" id="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">mot de passe</label>
+                                                <input class="form-control" type="password" id="mdp">
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label>Message</label>
+                                                <textarea class="form-control" id="message" rows="3" placeholder="Write Comment Here"></textarea>
+                                            </div>
+
+
+                                            <div class="form-group">
+
+                                                <label>Adresse</label>
+                                                <input class="form-control" type="text" id="adresse">
+                                            </div>
+                                            <form name="formulaire" id="formulaire" action="" method="">
+                                                <h3 class="rad">patient</h3> <input type="radio" name="choix" id="patient"
+                                                    value="patient" onclick="afficherPatient();" checked>
+                                                <h3 class="rad">Medecin</h3><input type="radio" name="choix" value="medecien"
+                                                    id="medecien" onclick="afficherMedecin();">
+
+                                            </form>
+
+                                            <div class="form-group">
+                                                <div id="champ">
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <button type="button" class="btn btn-default" id="register" onclick="verif()">Register</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1"> Name</label>
+                                                <input class="form-control" type="text" id="nom">
+                                            </div>
+                                            <div class="form-group">
+                                                <label> Vote CIN</label>
+                                                <input class="form-control" maxlength="8" type="text" id="cin">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Date de Naissance</label>
+                                                <input class="form-control" type="date" id="DateNais">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Téléphone</label>
+                                                <input class="form-control" type="tel" id="tlf">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email</label>
+                                                <input class="form-control" type="text" id="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">mot de passe</label>
+                                                <input class="form-control" type="password" id="mdp">
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label>Message</label>
+                                                <textarea class="form-control" id="message" rows="3" placeholder="Write Comment Here"></textarea>
+                                            </div>
+
+
+                                            <div class="form-group">
+
+                                                <label>Adresse</label>
+                                                <input class="form-control" type="text" id="adresse">
+                                            </div>
+                                            <form name="formulaire" id="formulaire" action="" method="">
+                                                <h3 class="rad">patient</h3> <input type="radio" name="choix" id="patient"
+                                                    value="patient" onclick="afficherPatient();" checked>
+                                                <h3 class="rad">Medecin</h3><input type="radio" name="choix" value="medecien"
+                                                    id="medecien" onclick="afficherMedecin();">
+
+                                            </form>
+
+                                            <div class="form-group">
+                                                <div id="champ">
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <button type="button" class="btn btn-default" id="register" onclick="verif()">Register</button>
+                                            </div>
+                                        </form>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Date de Naissance</label>
-                                        <input class="form-control" type="date" id="DateNais">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Téléphone</label>
-                                        <input class="form-control" type="tel" id="tlf">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email</label>
-                                        <input class="form-control" type="text" id="email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">mot de passe</label>
-                                        <input class="form-control" type="password" id="mdp">
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label>Message</label>
-                                        <textarea class="form-control" id="message" rows="3" placeholder="Write Comment Here"></textarea>
-                                    </div>
-
-
-                                    <form name="formulaire" id="formulaire" action="" method="">
-                                        patient <input type="radio" name="choix" id="patient" value="patient" onclick="afficherPatient();"
-                                            checked>
-                                        Medecin <input type="radio" name="choix" value="medecien" id="medecien" onclick="afficherMedecin();">
-
-                                    </form>
-
-                                    <div class="form-group">
-                                            <label for="exampleInputFile">File input</label>
-                                            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                                          </div>
-
-
-
-
-                                    <div class="form-group">
-                                        <div id="champ">
-
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <button type="button" class="btn btn-default" id="register" onclick="verif()">Register</button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
